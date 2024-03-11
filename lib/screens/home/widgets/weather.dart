@@ -54,6 +54,10 @@ class _WeatherState extends State<Weather> with TrayListener {
           color: Colors.white,
         ),
       );
+    } else {
+      setState(() {
+        isRefresh = true;
+      });
     }
     await _determinePosition();
   }
