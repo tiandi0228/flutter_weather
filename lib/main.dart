@@ -4,12 +4,17 @@ import 'package:flutter_weather/config/constants.dart';
 import 'package:flutter_weather/router/router.dart';
 import 'package:flutter_weather/screens/home/home_screen.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:local_notifier/local_notifier.dart';
 
 Future<void> _ensureInitialized() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await Hive.initFlutter();
   await Hive.openBox('Box');
+  await localNotifier.setup(
+    appName: 'Weather',
+    shortcutPolicy: ShortcutPolicy.requireCreate,
+  );
 }
 
 void main() async {

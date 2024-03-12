@@ -2,6 +2,8 @@ PODS:
   - FlutterMacOS (1.0.0)
   - geolocator_apple (1.2.0):
     - FlutterMacOS
+  - local_notifier (0.1.0):
+    - FlutterMacOS
   - path_provider_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
@@ -17,6 +19,7 @@ PODS:
 DEPENDENCIES:
   - FlutterMacOS (from `Flutter/ephemeral`)
   - geolocator_apple (from `Flutter/ephemeral/.symlinks/plugins/geolocator_apple/macos`)
+  - local_notifier (from `Flutter/ephemeral/.symlinks/plugins/local_notifier/macos`)
   - path_provider_foundation (from `Flutter/ephemeral/.symlinks/plugins/path_provider_foundation/darwin`)
   - screen_retriever (from `Flutter/ephemeral/.symlinks/plugins/screen_retriever/macos`)
   - tray_manager (from `Flutter/ephemeral/.symlinks/plugins/tray_manager/macos`)
@@ -28,6 +31,8 @@ EXTERNAL SOURCES:
     :path: Flutter/ephemeral
   geolocator_apple:
     :path: Flutter/ephemeral/.symlinks/plugins/geolocator_apple/macos
+  local_notifier:
+    :path: Flutter/ephemeral/.symlinks/plugins/local_notifier/macos
   path_provider_foundation:
     :path: Flutter/ephemeral/.symlinks/plugins/path_provider_foundation/darwin
   screen_retriever:
@@ -42,6 +47,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   FlutterMacOS: 8f6f14fa908a6fb3fba0cd85dbd81ec4b251fb24
   geolocator_apple: 72a78ae3f3e4ec0db62117bd93e34523f5011d58
+  local_notifier: e9506bc66fc70311e8bc7291fb70f743c081e4ff
   path_provider_foundation: 3784922295ac71e43754bd15e0653ccfd36a147c
   screen_retriever: 59634572a57080243dd1bf715e55b6c54f241a38
   tray_manager: 9064e219c56d75c476e46b9a21182087930baf90

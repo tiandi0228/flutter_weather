@@ -4,6 +4,7 @@
 
 list(APPEND FLUTTER_PLUGIN_LIST
   geolocator_windows
+  local_notifier
   screen_retriever
   tray_manager
   url_launcher_windows
