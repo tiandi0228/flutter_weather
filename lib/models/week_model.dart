@@ -16,11 +16,13 @@ class WeekResponse {
 
   factory WeekResponse.fromJson(Map<String, dynamic> json) => WeekResponse(
         code: json['code'],
-        daily: List<WeekModel>.from(
-          json["daily"].map(
-            (x) => WeekModel.fromJson(x),
-          ),
-        ),
+        daily: json['code'] == 200
+            ? List<WeekModel>.from(
+                json["daily"].map(
+                  (x) => WeekModel.fromJson(x),
+                ),
+              )
+            : [],
       );
 
   Map<String, dynamic> toJson() => {

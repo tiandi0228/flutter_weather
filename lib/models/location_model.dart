@@ -17,11 +17,13 @@ class LocationResponse {
   factory LocationResponse.fromJson(Map<String, dynamic> json) =>
       LocationResponse(
         code: json['code'],
-        location: List<LocationModel>.from(
-          json["location"].map(
-            (x) => LocationModel.fromJson(x),
-          ),
-        ),
+        location: json['code'] == 200
+            ? List<LocationModel>.from(
+                json["location"].map(
+                  (x) => LocationModel.fromJson(x),
+                ),
+              )
+            : [],
       );
 
   Map<String, dynamic> toJson() => {

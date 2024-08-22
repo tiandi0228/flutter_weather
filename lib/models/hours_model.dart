@@ -16,11 +16,13 @@ class HoursResponse {
 
   factory HoursResponse.fromJson(Map<String, dynamic> json) => HoursResponse(
         code: json['code'],
-        hourly: List<HoursModel>.from(
-          json["hourly"].map(
-            (x) => HoursModel.fromJson(x),
-          ),
-        ),
+        hourly: json['code'] == 200
+            ? List<HoursModel>.from(
+                json["hourly"].map(
+                  (x) => HoursModel.fromJson(x),
+                ),
+              )
+            : [],
       );
 
   Map<String, dynamic> toJson() => {

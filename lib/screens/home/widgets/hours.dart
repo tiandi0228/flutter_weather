@@ -63,48 +63,105 @@ class _HoursState extends State<Hours> {
       ),
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
-        child: Row(
-            children: list
-                .map(
-                  (HoursModel item) => SizedBox(
-                    width: 37,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Text(
-                          '${item.temp}°',
-                          style:
-                              const TextStyle(color: textColor, fontSize: 12),
-                        ),
-                        Container(
-                          width: 5,
-                          height: double.parse(item.temp!).abs() * 2,
-                          margin: const EdgeInsets.symmetric(vertical: 5),
-                          decoration: BoxDecoration(
-                            color: Colors.amber,
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                        ),
-                        SvgPicture.asset(
-                          "assets/icons/${item.icon}.svg",
-                          width: 20,
-                          height: 20,
-                        ),
-                        Text(
-                          '${DateUtil.formatDateStr(
-                            item.fxTime ?? '',
-                            format: 'HH',
-                            isUtc: false,
-                          )}时',
-                          style: const TextStyle(
-                              color: secondaryTextColor, fontSize: 11),
-                        )
-                      ],
-                    ),
-                  ),
-                )
-                .toList()),
+        child: Column(
+          children: [
+            temp(context),
+            bar(context),
+            time(),
+          ],
+        ),
       ),
+    );
+  }
+
+  Widget temp(BuildContext context) {
+    return Row(
+      children: list
+          .map(
+            (HoursModel item) => SizedBox(
+              width: 40,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(
+                    '${MediaQuery.of(context).size.height}°',
+                    style: const TextStyle(color: textColor, fontSize: 12),
+                  ),
+                ],
+              ),
+            ),
+          )
+          .toList(),
+    );
+  }
+
+  Widget bar(BuildContext context) {
+    return SizedBox(
+      height: 65,
+      child: Row(
+        children: list
+            .map(
+              (HoursModel item) => SizedBox(
+                width: 40,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Container(
+                      width: 8,
+                      height: double.parse(item.temp!).abs() * 2 > 50
+                          ? 50
+                          : double.parse(item.temp!).abs() * 2,
+                      margin: const EdgeInsets.symmetric(vertical: 5),
+                      decoration: BoxDecoration(
+                        //   color: Colors.amber,
+                        gradient: const LinearGradient(
+                          colors: [
+                            Color(0xFFA9E0F9),
+                            Color(0xFF2A92EC),
+                          ],
+                          begin: Alignment.bottomCenter,
+                          end: Alignment.topCenter,
+                        ),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            )
+            .toList(),
+      ),
+    );
+  }
+
+  Widget time() {
+    return Row(
+      children: list
+          .map(
+            (HoursModel item) => SizedBox(
+              width: 40,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  SvgPicture.asset(
+                    "assets/icons/${item.icon}.svg",
+                    width: 20,
+                    height: 20,
+                  ),
+                  Text(
+                    '${DateUtil.formatDateStr(
+                      item.fxTime ?? '',
+                      format: 'HH',
+                      isUtc: false,
+                    )}时',
+                    style: const TextStyle(
+                        color: secondaryTextColor, fontSize: 11),
+                  )
+                ],
+              ),
+            ),
+          )
+          .toList(),
     );
   }
 }

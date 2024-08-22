@@ -1,12 +1,10 @@
 import 'dart:async';
-import 'dart:ui';
 
 import 'package:flutter_weather/models/hours_model.dart';
 import 'package:flutter_weather/models/location_model.dart';
 import 'package:flutter_weather/models/now_model.dart';
 import 'package:flutter_weather/models/week_model.dart';
 import 'package:flutter_weather/network/network_manager.dart';
-import 'package:ftoast/ftoast.dart';
 import 'package:hive/hive.dart';
 
 var box = Hive.box('Box');

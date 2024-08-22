@@ -106,7 +106,7 @@ class _WeekState extends State<Week> {
                           padding: EdgeInsets.symmetric(horizontal: 5)),
                       Container(
                         width: 125,
-                        height: 5,
+                        height: 8,
                         decoration: BoxDecoration(
                           gradient: const LinearGradient(
                             colors: [Color(0xFF2A92EC), Color(0xFFA9E0F9)],
